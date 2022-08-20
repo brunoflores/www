@@ -55,7 +55,7 @@ default_template_file = "templates/main.html"
 # Page content is inserted into a certain element of the page template.
 # This option is a CSS selector that is used for locating that element.
 # By default the content is inserted into the <body>
-default_content_selector = "body"
+default_content_selector = "main"
 
 # You can choose where exactly to insert the content in its parent element.
 # The default is append_child, but there are more, including prepend_child and replace_content
@@ -94,38 +94,31 @@ blog_summary_max_entries = 5
 #  md = "cmark --unsafe --smart"
 #  adoc = "asciidoctor -o -"
 
-# Pages can be further processed with \"widgets\"
-
-# Takes the content of the first <h1> and inserts it into the <title>
 [widgets.page-title]
 widget = "title"
 selector = "h1"
 default = "My Homepage"
 append = " &mdash; My Homepage"
-
-# Insert a <title> in a page if it doesn't have one already.
-# By default soupault assumes if it's missing, you don't want it.
 force = false
 
-# Inserts a generator meta tag in the page <head>
-# Just for demonstration, feel free to remove
+[widgets.insert-header]
+widget = "include"
+selector = "main"
+action = "insert_before"
+file = "templates/header.html"
+
+[widgets.highlight-active-link]
+widget = "section-link-highlight"
+after = ["insert-header"]
+selector = "nav"
+active_link_class = "nav-active"
+
 [widgets.generator-meta]
 widget = "insert_html"
 html = '<meta name="generator" content="soupault">'
 selector = "head"
 
-# <blink> elements are evil, delete them all
-[widgets.no-blink]
-widget = "delete_element"
-selector = "blink"
-
-# By default this widget deletes all elements matching the selector,
-# but you can set this option to false to delete just the first one
-delete_all = true
-
-# Processors
 [preprocessors]
-# Automatically call pandoc on every *.md page
 md = "pandoc -f commonmark+smart -t html"
 
 [widgets.header]
