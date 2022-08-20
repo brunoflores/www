@@ -17,3 +17,7 @@ let hello = "world" in
 
 Well, I mean it would be interesting if there was any content in this post. Sadly, there isn’t,
 so it’s no better than its introductory paragraph.
+
+<span class="graphviz">
+digraph { A -> B }
+</span>

@@ -153,6 +153,12 @@ widget = "preprocess_element"
 selector = '*[class^="language-"]'
 command = 'highlight --out-format=html --fragment --inline-css --syntax=$(echo $ATTR_CLASS | sed -e "s/language-//")'
 
+[widgets.graphviz-svg]
+widget = 'preprocess_element'
+selector = 'span.graphviz'
+command = 'dot -Tsvg'
+action = "replace_element"
+
 # Content model
 [index.fields]
 
