@@ -147,6 +147,12 @@ selector = "pre"
 command = "cat -n"
 parse = false
 
+# Runs the content of <* class="language-*"> elements through a syntax highlighter
+[widgets.highlight]
+widget = "preprocess_element"
+selector = '*[class^="language-"]'
+command = 'highlight --out-format=html --fragment --inline-css --syntax=$(echo $ATTR_CLASS | sed -e "s/language-//")'
+
 # Content model
 [index.fields]
 

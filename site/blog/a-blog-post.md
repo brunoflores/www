@@ -10,7 +10,7 @@ This is my first post in the brand new soupault blog. It’s really interesting,
 introductory paragraph of course. That one is boring and should never be displayed on the front page.
 </p>
 
-<pre>
+<pre class="language-ocaml">
 let hello = "world" in
   hello
 </pre>
