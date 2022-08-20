@@ -159,6 +159,17 @@ selector = 'span.graphviz'
 command = 'dot -Tsvg'
 action = "replace_element"
 
+# [widgets.graphviz-png]
+# widget = 'preprocess_element'
+# selector = '.graphviz-png'
+# command = 'dot -Tpng > $TARGET_DIR/graph_$ATTR_ID.png && echo \<img src="graph_$ATTR_ID.png"\>'
+# action = 'replace_element'
+
+[widgets.last-modified]
+widget = "exec"
+selector = "#git-timestamp"
+command = "git log -n 1 --pretty=format:%ad --date=format:%Y-%m-%d -- $PAGE_FILE"
+
 # Content model
 [index.fields]
 
