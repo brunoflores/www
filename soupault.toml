@@ -155,3 +155,13 @@ index_item_template = """
   <p>{{excerpt}}</p>
   <a href="{{url}}">Read more</a>
 """
+
+[index.views.blog-summary]
+section = "blog/"
+index_selector = "#blog-summary"
+index_item_template = """
+  <h2><a href="{{url}}">{{title}}</a></h2>
+  <p><strong>Last update:</strong> {{date}}.</p>
+  <p>{{excerpt}}</p>
+  <a href="{{url}}">Read more</a>
+"""
