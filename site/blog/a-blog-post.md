@@ -10,5 +10,10 @@ This is my first post in the brand new soupault blog. It’s really interesting,
 introductory paragraph of course. That one is boring and should never be displayed on the front page.
 </p>
 
+<pre>
+let hello = "world" in
+  hello
+</pre>
+
 Well, I mean it would be interesting if there was any content in this post. Sadly, there isn’t,
 so it’s no better than its introductory paragraph.

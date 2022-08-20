@@ -141,6 +141,12 @@ selector = "#generated-on"
 command = "date -R"
 parse = true
 
+[widgets.line-numbers]
+widget = "preprocess_element"
+selector = "pre"
+command = "cat -n"
+parse = false
+
 # Content model
 [index.fields]
 
