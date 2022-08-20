@@ -129,7 +129,10 @@ selector = "#header"
 [widgets.insert-sakura-css]
 widget = "insert_html"
 selector = "head"
-html = """ <link rel="stylesheet" href="/sakura.css" type="text/css"> """
+html = """
+<link rel="stylesheet" href="/sakura.css" type="text/css">
+<link rel="stylesheet" href="/grid.css" type="text/css">
+"""
 
 [widgets.footer]
 widget = "include"
