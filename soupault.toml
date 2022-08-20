@@ -84,6 +84,8 @@ clean_urls = true
 plugin_discovery = true
 plugin_dirs = ["plugins"]
 
+[custom_options]
+blog_summary_max_entries = 5
 
 # It is possible to store pages in any format if you have a program
 # that converts it to HTML and writes it to standard output.
@@ -123,12 +125,18 @@ delete_all = true
 
 # Processors
 [preprocessors]
+# Automatically call pandoc on every *.md page
 md = "pandoc -f commonmark+smart -t html"
 
 [widgets.header]
 widget = "include"
 file = "templates/header.html"
 selector = "#header"
+
+[widgets.insert-sakura-css]
+widget = "insert_html"
+selector = "head"
+html = """ <link rel="stylesheet" href="/sakura.css" type="text/css"> """
 
 [widgets.footer]
 widget = "include"
@@ -193,6 +201,7 @@ date_formats = ["%F"] # %F means YYYY-MM-DD
 strict_sort = true
 
 [index.views.blog]
+section = "blog"
 index_selector = "#blog-index"
 index_item_template = """
   <h2><a href="{{url}}">{{title}}</a></h2>
@@ -202,11 +211,17 @@ index_item_template = """
 """
 
 [index.views.blog-summary]
-section = "blog/"
+section = "blog"
 index_selector = "#blog-summary"
-index_item_template = """
-  <h2><a href="{{url}}">{{title}}</a></h2>
-  <p><strong>Last update:</strong> {{date}}.</p>
-  <p>{{excerpt}}</p>
-  <a href="{{url}}">Read more</a>
+index_template = """
+    {% set limit = int(soupault_config.custom_options.blog_summary_max_entries) %}
+    <dl>
+      {% for e in sublist(0, limit, entries) %}
+      <dt>{{e.date}}</dt>
+      <dd>
+        <a href="{{e.url}}">{{e.title}}</a>
+        <p>{{e.excerpt}}</p>
+      </dd>
+      {% endfor %}
+    </dl>
 """
