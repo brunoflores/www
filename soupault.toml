@@ -120,3 +120,38 @@
   # By default this widget deletes all elements matching the selector,
   # but you can set this option to false to delete just the first one
   delete_all = true
+
+# Processors
+[preprocessors]
+md = 'pandoc -f commonmark+smart -t html'
+
+# Content model
+[index.fields]
+
+[index.fields.title]
+selector = ["h1"]
+
+[index.fields.date]
+selector = ["time#post-date", "time"]
+extract_attribute = "datetime"
+fallback_to_content = true
+
+[index.fields.excerpt]
+selector = ["p#post-excerpt", "p"]
+
+[index]
+index = true
+sort_descending = true
+sort_type = "calendar" # numeric | lexicographic | calendar
+sort_by = "date" # Which index field to use a sorting key
+date_formats = ["%F"] # %F means YYYY-MM-DD
+strict_sort = true
+
+[index.views.blog]
+index_selector = "#blog-index"
+index_item_template = """
+  <h2><a href="{{url}}">{{title}}</a></h2>
+  <p><strong>Last update:</strong> {{date}}.</p>
+  <p>{{excerpt}}</p>
+  <a href="{{url}}">Read more</a>
+"""
