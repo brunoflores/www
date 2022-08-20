@@ -123,7 +123,23 @@ delete_all = true
 
 # Processors
 [preprocessors]
-md = 'pandoc -f commonmark+smart -t html'
+md = "pandoc -f commonmark+smart -t html"
+
+[widgets.header]
+widget = "include"
+file = "templates/header.html"
+selector = "#header"
+
+[widgets.footer]
+widget = "include"
+file = "templates/footer.html"
+selector = "#footer"
+
+[widgets.generated-on]
+widget = "exec"
+selector = "#generated-on"
+command = "date -R"
+parse = true
 
 # Content model
 [index.fields]
