@@ -119,7 +119,7 @@ html = '<meta name="generator" content="soupault">'
 selector = "head"
 
 [preprocessors]
-md = "pandoc -f commonmark+smart -t html"
+md = "pandoc -f markdown+smart -t html"
 
 [widgets.header]
 widget = "include"
