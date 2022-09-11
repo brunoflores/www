@@ -5,3 +5,7 @@ $ soupault
 To start a local webserver:
 
 $ python -m http.server --directory build/
+
+To watch for changes and build:
+
+$ ls -d ./**/*.{html, md} | entr sh -c "soupault"
