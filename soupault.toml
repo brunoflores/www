@@ -209,14 +209,29 @@ index_item_template = """
 section = "blog"
 index_selector = "#blog-summary"
 index_template = """
-    {% set limit = int(soupault_config.custom_options.blog_summary_max_entries) %}
-    <dl>
-      {% for e in sublist(0, limit, entries) %}
-      <dt>{{e.date}}</dt>
-      <dd>
-        <a href="{{e.url}}">{{e.title}}</a>
-        <p>{{e.excerpt}}</p>
-      </dd>
-      {% endfor %}
-    </dl>
+  {% set limit = int(soupault_config.custom_options.blog_summary_max_entries) %}
+  <dl>
+    {% for e in sublist(0, limit, entries) %}
+    <dt>{{e.date}}</dt>
+    <dd>
+      <a href="{{e.url}}">{{e.title}}</a>
+      <p>{{e.excerpt}}</p>
+    </dd>
+    {% endfor %}
+  </dl>
+"""
+
+[index.views.patterns-ml]
+section = "patterns-ml"
+index_selector = "#patterns-ml"
+index_template = """
+  <dl>
+    {% for e in entries %}
+    <dt>{{e.date}}</dt>
+    <dd>
+      <a href="{{e.url}}">{{e.title}}</a>
+      <p>{{e.excerpt}}</p>
+    </dd>
+    {% endfor %}
+  </dl>
 """
