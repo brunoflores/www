@@ -1,10 +1,9 @@
-
 # To learn about configuring soupault, visit https://www.soupault.app/reference-manual
 
 [settings]
 # Soupault version that the config was written/generated for
 # Trying to process this config with an older version will result in an error message
-soupault_version = "4.1.0"
+soupault_version = "4.2.0"
 
 # Stop on page processing errors?
 strict = true
