@@ -1,4 +1,4 @@
-# State Machines
+# Rational Numbers
 
 <time id="post-date">1970-01-01</time>
 

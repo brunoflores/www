@@ -1,2 +1,5 @@
 build/
 *~
+**/*.swp
+**/*.cm/
+**/*.amd64-linux

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+heap=$(basename "$0")
+exec sml @SMLload="${heap}".amd64-linux "$@"
