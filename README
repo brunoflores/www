@@ -1,0 +1,7 @@
+To build the site:
+
+$ soupault
+
+To start a local webserver:
+
+$ python -m http.server --directory build/
