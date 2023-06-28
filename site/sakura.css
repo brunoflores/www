@@ -25,6 +25,7 @@ body {
     font-size: 1.53rem;
   }
 }
+
 @media (max-width: 382px) {
   body {
     font-size: 1.35rem;
