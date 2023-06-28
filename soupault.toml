@@ -96,8 +96,8 @@ blog_summary_max_entries = 5
 [widgets.page-title]
 widget = "title"
 selector = "h1"
-default = "My Homepage"
-append = " &mdash; My Homepage"
+default = "Bruno Flores"
+append = " &mdash; Bruno Flores"
 force = false
 
 [widgets.insert-header]
