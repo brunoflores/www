@@ -138,7 +138,7 @@ parse = false
 [widgets.highlight]
 widget = "preprocess_element"
 selector = '*[class^="language-"]'
-command = 'highlight --out-format=html --fragment --inline-css --syntax=$(echo $ATTR_CLASS | sed -e "s/language-//")'
+command = 'highlight --out-format=html --fragment --inline-css --config-file site/ocaml.theme --style=zenburn --syntax=$(echo $ATTR_CLASS | sed -e "s/language-//")'
 
 [widgets.graphviz-svg]
 widget = 'preprocess_element'
