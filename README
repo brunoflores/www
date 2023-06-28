@@ -1,3 +1,7 @@
+Dependencies:
+
+$ apt install pandoc graphviz highlight
+
 To build the site:
 
 $ soupault
