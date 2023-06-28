@@ -1,8 +1,0 @@
-group is
-  rat.sig
-  rat.sml
-
-  main.sml
-
-  $/basis.cm
-  $/smlnj-lib.cm

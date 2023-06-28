@@ -120,11 +120,6 @@ selector = "head"
 [preprocessors]
 md = "pandoc -f markdown+smart -t html"
 
-[widgets.header]
-widget = "include"
-file = "templates/header.html"
-selector = "#header"
-
 [widgets.insert-sakura-css]
 widget = "insert_html"
 selector = "head"
@@ -132,17 +127,6 @@ html = """
 <link rel="stylesheet" href="/sakura.css" type="text/css">
 <link rel="stylesheet" href="/grid.css" type="text/css">
 """
-
-[widgets.footer]
-widget = "include"
-file = "templates/footer.html"
-selector = "#footer"
-
-[widgets.generated-on]
-widget = "exec"
-selector = "#generated-on"
-command = "date -R"
-parse = true
 
 [widgets.line-numbers]
 widget = "preprocess_element"
@@ -168,12 +152,9 @@ action = "replace_element"
 # command = 'dot -Tpng > $TARGET_DIR/graph_$ATTR_ID.png && echo \<img src="graph_$ATTR_ID.png"\>'
 # action = 'replace_element'
 
-[widgets.last-modified]
-widget = "exec"
-selector = "#git-timestamp"
-command = "git log -n 1 --pretty=format:%ad --date=format:%Y-%m-%d -- $PAGE_FILE"
-
-# Content model
+#################
+# Content model #
+#################
 [index.fields]
 
 [index.fields.title]
@@ -212,21 +193,6 @@ index_template = """
   {% set limit = int(soupault_config.custom_options.blog_summary_max_entries) %}
   <dl>
     {% for e in sublist(0, limit, entries) %}
-    <dt>{{e.date}}</dt>
-    <dd>
-      <a href="{{e.url}}">{{e.title}}</a>
-      <p>{{e.excerpt}}</p>
-    </dd>
-    {% endfor %}
-  </dl>
-"""
-
-[index.views.patterns-ml]
-section = "patterns-ml"
-index_selector = "#patterns-ml"
-index_template = """
-  <dl>
-    {% for e in entries %}
     <dt>{{e.date}}</dt>
     <dd>
       <a href="{{e.url}}">{{e.title}}</a>
